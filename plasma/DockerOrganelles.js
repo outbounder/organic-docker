@@ -8,25 +8,17 @@ var OrganelModel = require("../dna/models/Organel");
 
 /* organel | DockerOrganelles
 
-The organelle is responsible for 1) scanning and 2) analyzing a directory of javascript files.
-It is scanning for Organelles (javascript files to contain `Organel` keyword)
-It is analyzing all found entries from scanning and renders a collection of models dna/models/Organel
+# The organelle is responsible for 
+ 
+1. scanning 
 
-The organelle is useful for code documentation generation.
+  It is scanning for Organelles (javascript files to contain `organel |` charsequence)
 
-  * emitAnalyzed - emit the analyzed organelles
-    
-    Refer to outgoing chemical Scan&AnalyzedDockerOrganelles
+2. analyzing a directory of javascript files.
 
-  * somethingElseConfig - default value
+  It is analyzing all found entries from scanning and renders a collection of models dna/models/Organel
 
-*/
-
-/* outgoing | Scan&AnalyzedDockerOrganelles
-
-  * data - Array of dna/models/Organel 
-
-    Collection of dna/models/Organel instances
+3. reading and analyzing a single File
 
 */
 module.exports = Organel.extend(function DockerOrganelles(plasma, config, parent){
@@ -34,9 +26,9 @@ module.exports = Organel.extend(function DockerOrganelles(plasma, config, parent
 
   /* incoming | DockerOrganelles
   
-  * `action` - `scanForOrganelles` || `scan&analyze`
+  * `action` - different values
   
-    required, can have one of the values specified above
+    required, can have one of the values specified bellow
 
     * `scanForOrganelles` - instructs searching for organelles upon 
     given `target` path
@@ -44,26 +36,17 @@ module.exports = Organel.extend(function DockerOrganelles(plasma, config, parent
     * `scan&analyze` - instructs searching and analyzing organelles, 
     returning dna/models/Organel based collection
 
-  * `target` - directory to be scanned for organelles
-    
-    required, active only when "scanForOrganelles" is set for `action`
+    * `analyzeFile` - instructs reading and analyzing only one file. returns dna/model/Organel instance as data field
 
-    returns Array of Objects {file: "", source: ""}
-
-  * `data` - Array of Objects {file: "", source: ""}
+  * `target` - depends on `action`
     
-    required, active only when "scan&analyze" is set for `action`
+    * when `action` equals "scanForOrganelles" => target is the directory to be scanned for Organlles returns Array of Objects {file: "", source: ""}
+
+    * when `action` equals "analyzeFile" => target is the file to be analyzed
+
+    * when `action` equals "scan&analyze" => target is the directory to be scanned and then analyzed by returning Array of dna/model/Organel instances
   */
   this.on("DockerOrganelles", function(c, sender, callback){
-    this[c.action](c, sender, callback);
-  });
-
-  /* incoming | DockerOrganelles2
-  
-  # this is intentionally left here as reserved.
-
-  */
-  this.on("DockerOrganelles2", function(c, sender, callback){
     this[c.action](c, sender, callback);
   });
 }, {
@@ -88,6 +71,19 @@ module.exports = Organel.extend(function DockerOrganelles(plasma, config, parent
       })
     })
   },
+  "analyzeFile": function(c, sender, callback) {
+    fs.readFile(c.target, function(err, fileData){
+      if(err) return callback(err);
+      var organel = new OrganelModel({
+        file: c.target,
+        source: fileData.toString()
+      });
+      organel.selfAnalyze(function(err){
+        if(err) return callback(err);
+        callback({data: organel});
+      })
+    })
+  },
   "scan&analyze": function(c, sender, callback) {
     var self = this;
     this.scanForOrganelles(c, sender, function(c){
@@ -101,12 +97,6 @@ module.exports = Organel.extend(function DockerOrganelles(plasma, config, parent
       }, function(err, organelles){
         organelles = _.compact(organelles);
         callback({data: organelles});
-        
-        if(self.config.emitAnalyzed)
-          self.emit({
-            type: "Scan&AnalyzedDockerOrganelles",
-            data: organelles
-          })
       })
     })
   }

@@ -153,7 +153,7 @@ exports.rethrow = function rethrow(err, filename, lineno){
   if (!filename) throw err;
 
   var context = 3
-    , str = require('fs').readFileSync(filename, 'utf8')
+    , str = ""//require('fs').readFileSync(filename, 'utf8')
     , lines = str.split('\n')
     , start = Math.max(lineno - context, 0)
     , end = Math.min(lines.length, lineno + context);

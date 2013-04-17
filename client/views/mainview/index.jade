@@ -2,24 +2,6 @@
   .input-append
     input(type="text")
     .btn.add-on search
+
 each organel in organelles
-  .row-fluid
-    .span4
-      each chemical in organel.in
-        include ./chemical.jade
-    .span4
-      .organel
-        .parent= organel.parent
-        .name
-          a(href="javascript: void(0)", 
-            data-details= organel.details, 
-            data-name= organel.name,
-            data-file= organel.file,
-            data-commentBlock= organel.commentBlock)=  organel.name
-      .organel-defaults
-        - var structure = organel.dna
-        include ./structure.jade
-    .span4
-      each chemical in organel.out
-        include ./chemical.jade
-  hr
+  include ./organel.jade

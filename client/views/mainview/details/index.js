@@ -9,8 +9,9 @@ module.exports = Backbone.View.extend({
   },
 
   saveEdits: function(e){
+    var self = this;
     this.model.replaceCommentBlock(this.editor.exportFile()).success(function(){
-      alert("done");
+      self.trigger("saved", self.model.get("file"));
     }).error(function(err){
       alert(err);
     })
@@ -35,6 +36,10 @@ module.exports = Backbone.View.extend({
       this.editor = null;
     }
     Backbone.View.prototype.remove.call(this);
+  },
+
+  close: function(){
+    $(this.$el).bPopup().close();
   },
 
   renderEditMode: function(){

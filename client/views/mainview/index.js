@@ -1,11 +1,27 @@
 var DetailsView = require("./details");
 var CommentBlock = require("../../models/CommentBlock");
+var OrganelDoc = require("../../models/OrganelDoc");
 
 module.exports = Backbone.View.extend({
   template: require("./index.jade"),
-  render: function(){
+  organelTemplate: require("./organel.jade"),
+
+  update: function(file){
     var self = this;
-    this.$el.find("a").click(function(e){
+    var doc = new OrganelDoc();
+    doc.save({file: file}).success(function(){
+      self.renderOrganelDetails(file, doc);
+    })
+  },
+  renderOrganelDetails: function(file, model){
+    this.$el.find(".organelContainer[data-file='"+file+"']").html(this.organelTemplate({
+      organel: model.toJSON().result
+    }))
+    this.bindDetailsPopup(".organelContainer[data-file='"+file+"'] a");
+  },
+  bindDetailsPopup: function(selector){
+    var self = this;
+    this.$el.find(selector).click(function(e){
       e.preventDefault();
       var view = new DetailsView({
         model: new CommentBlock({
@@ -15,9 +31,16 @@ module.exports = Backbone.View.extend({
           commentBlock: $(this).attr('data-commentBlock')
         })
       });
-      view.render();
+      view.render().on("saved", function(file){
+        view.close();
+        self.update(file);
+      })
       return false;
     })
+  },
+  render: function(){
+    var self = this;
+    this.bindDetailsPopup("a");
     return this;
   }
 });
