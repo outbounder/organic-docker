@@ -1,0 +1,20 @@
+{
+  "BundleCode": {
+    "useCache": false,
+    "debug": true,
+    "uglify": false
+  },
+  "RenderPage": {
+    "useCache": false,
+    "jadeConfig": {
+      "pretty": true
+    }
+  },
+  "ExpressHttpPages": {
+    "log": true,
+    "debug": true
+  },
+  "ExpressHttpActions": {
+    "log": true
+  }
+}

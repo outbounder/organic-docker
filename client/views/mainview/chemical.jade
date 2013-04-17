@@ -1,0 +1,13 @@
+.chemicalContainer
+  .incomingChemical
+    .magnifier
+    a.name(href="javascript: void(0);", 
+      data-details= chemical.details, 
+      data-name= chemical.name,
+      data-file= chemical.file,
+      data-commentBlock= chemical.commentBlock)= chemical.name
+    .clear
+    - var structure = chemical.dna
+    include ./structure.jade
+    .placeholder
+  .rightarrow

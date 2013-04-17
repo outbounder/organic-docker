@@ -1,0 +1,18 @@
+mixin printPairKeyName(pair)
+  - for(var i = 0;i<pair.nestedLevel; i++)
+    span -
+  span #{pair.keyName} : 
+
+.structure {
+  br
+  each pair in structure
+    - if(pair.details)
+      a(href="javascript: void(0)", data-details= pair.details, data-name= pair.keyName)
+        mixin printPairKeyName(pair)
+    - else
+      mixin printPairKeyName(pair)
+
+    - if(pair.keyDefaultValue)
+      span.label #{pair.keyDefaultValue}
+    br
+  | }
