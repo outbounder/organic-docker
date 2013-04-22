@@ -5,7 +5,9 @@ module.exports = function(config) {
       plasma.emit({
         type: "DockerOrganelles",
         action: "scan&analyze",
-        target: process.cwd()
+        target: process.cwd()+"/**/*.js",
+        targetPattern: 'require("organic").Organel',
+        excludePattern: "node_modules"
       }, this, function(c){
         res.sendPage({organelles: c.data});
       });

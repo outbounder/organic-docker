@@ -37,6 +37,6 @@
     "surviveExceptions": true
   },
   "DockerOrganelles": {
-    "source": "plasma/DockerOrganelles" 
+    "source": "plasma/DockerOrganelles"
   }
 }

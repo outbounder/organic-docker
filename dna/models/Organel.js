@@ -37,8 +37,5 @@ module.exports.prototype.selfAnalyze = function(next){
   } catch(err){
     console.log(err, this.file);
   }
-    
-  // 2) outgoing chemicals
-  // 3) organel default configuration
   next();
 }
