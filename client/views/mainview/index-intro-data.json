@@ -16,15 +16,27 @@
     "text": "From here one can view or edit(double click on the popup) Organelle's documentation"
   },
   {
-    "selector": ".organelContainer .incomingChemical:first",
+    "selector": ".organelContainer .incomingList .chemical:first",
     "text": "This represents incoming Chemical to the Organelle on the right"
   },
   {
-    "selector": ".incomingChemical .structure:first",
-    "text": "Shown is general expected structure of the chemical"
+    "selector": ".incomingList .chemical .structure:first",
+    "text": "Shown is general expected structure of the incoming chemical. The one which the Organelle listens to."
   },
   {
-    "selector": ".incomingChemical .name:first",
+    "selector": ".incomingList .chemical .name:first",
+    "text":  "Of course clicking on Chemical's name will show more details with edit via double click on the popup"
+  },
+  {
+    "selector": ".organelContainer .outgoingList .chemical:first",
+    "text": "This represents outgoing Chemical to the Organelle on the left"
+  },
+  {
+    "selector": ".outgoingList .chemical .structure:first",
+    "text": "Shown is general expected structure of the outgoing chemical. The one which the Organelle emits."
+  },
+  {
+    "selector": ".outgoingList .chemical .name:first",
     "text":  "Of course clicking on Chemical's name will show more details with edit via double click on the popup"
   }
 ]

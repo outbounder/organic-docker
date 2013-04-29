@@ -1,5 +1,5 @@
 .row-fluid.organelContainer(data-file= organel.file)
-  .span4
+  .span4.incomingList
     each chemical in organel.in
       include ./chemical.jade
   .span4
@@ -14,7 +14,7 @@
     .organel-defaults
       - var structure = organel.dna
       include ./structure.jade
-  .span4
+  .span4.outgoingList
     each chemical in organel.out
       include ./chemical.jade
 hr
