@@ -1,7 +1,8 @@
-.search
-  .input-append
-    input(type="text")
-    .btn.add-on search
+.head
+  h1 #{name}
 
-each organel in organelles
-  include ./organel.jade
+each organel, index in organelles
+  - if(index == 0)
+    include ./organel-with-intro.jade
+  - else
+    include ./organel.jade

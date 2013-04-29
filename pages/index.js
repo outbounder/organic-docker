@@ -1,3 +1,5 @@
+var path = require("path");
+
 module.exports = function(config) {
   var plasma = this.plasma;
   return {
@@ -9,7 +11,7 @@ module.exports = function(config) {
         targetPattern: 'require("organic").Organel',
         excludePattern: "node_modules"
       }, this, function(c){
-        res.sendPage({organelles: c.data});
+        res.sendPage({organelles: c.data, name: path.basename(process.cwd())});
       });
     }
   }

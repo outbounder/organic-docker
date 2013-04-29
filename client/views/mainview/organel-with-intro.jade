@@ -1,0 +1,20 @@
+#intro.row-fluid.organelContainer(data-file= organel.file)
+  .span4
+    each chemical in organel.in
+      include ./chemical.jade
+  .span4
+    .organel
+      .parent= organel.parent
+      .name
+        a(href="javascript: void(0)", 
+          data-details= organel.details, 
+          data-name= organel.name,
+          data-file= organel.file,
+          data-commentBlock= organel.commentBlock)=  organel.name
+    .organel-defaults
+      - var structure = organel.dna
+      include ./structure.jade
+  .span4
+    each chemical in organel.out
+      include ./chemical.jade
+hr

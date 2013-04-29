@@ -1,5 +1,5 @@
 module.exports = Backbone.Model.extend({
-  url: "/commentblock",
+  url: "/replace",
   replaceCommentBlock: function(newContent) {
     return this.save({
       newContent: newContent,

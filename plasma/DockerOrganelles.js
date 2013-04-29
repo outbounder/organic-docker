@@ -7,6 +7,11 @@ var _ = require("underscore");
 
 /* organel | DockerOrganelles
 
+* models - Object
+
+models.Organel = path to model which will be used for parsing comments
+
+
 # The organelle is responsible for 
  
 1. scanning 

@@ -37,5 +37,6 @@ module.exports.prototype.selfAnalyze = function(next){
   } catch(err){
     console.log(err, this.file);
   }
+  this['file'] = path.relative(process.cwd(), this['file']);
   next();
 }

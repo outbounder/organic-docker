@@ -6,6 +6,18 @@ module.exports = Backbone.View.extend({
   template: require("./index.jade"),
   organelTemplate: require("./organel.jade"),
 
+  events: {
+    "click .introMeBtn": "startInto"
+  },
+  startInto: function(){
+    var introData = require("./index-intro-data.json");
+    for(var i = 0; i<introData.length; i++) {
+      var data = introData[i];
+      this.$(data.selector).attr("data-intro", data.text)
+      this.$(data.selector).attr("data-step", i);
+    }
+    require("Intro.js").introJs().start();
+  },
   update: function(file){
     var self = this;
     var doc = new OrganelDoc();
@@ -40,7 +52,7 @@ module.exports = Backbone.View.extend({
   },
   render: function(){
     var self = this;
-    this.bindDetailsPopup("a");
+    this.bindDetailsPopup(".organelContainer a");
     return this;
   }
 });

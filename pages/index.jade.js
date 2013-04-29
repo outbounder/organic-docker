@@ -11,3 +11,9 @@ Backbone.history.start({pushState: false, trigger: true});
 
 $("pre").addClass("highlight");
 $.SyntaxHighlighter.init({"lineNumbers": false});
+
+$(function(){
+  $("").click(function(){
+    
+  })  
+})

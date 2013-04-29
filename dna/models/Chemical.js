@@ -1,6 +1,7 @@
 var $ = require("jquery");
 
 var md_parser = require("node-markdown").Markdown;
+var path = require("path");
 
 module.exports = function(file, commentBlock){
   var $html = $("<html>"+md_parser(commentBlock)+"</html>");
@@ -22,5 +23,5 @@ module.exports = function(file, commentBlock){
       details: $li.html()
     })
   });
-  
+  this['file'] = path.relative(process.cwd(), this['file']);
 }
