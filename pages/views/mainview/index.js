@@ -1,6 +1,6 @@
 var DetailsView = require("./details");
-var CommentBlock = require("../../models/CommentBlock");
-var OrganelDoc = require("../../models/OrganelDoc");
+var CommentBlock = require("../../../client/models/CommentBlock");
+var OrganelDoc = require("../../../client/models/OrganelDoc");
 
 module.exports = Backbone.View.extend({
   template: require("./index.jade"),

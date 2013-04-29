@@ -6,7 +6,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(name='description', content='')
     meta(name='author', content='')
-    link(rel='stylesheet', href='style.css')
+    link(rel='stylesheet', href='/style.css')
     script(src="js/jade.js")
     
     //if lt IE 9
@@ -16,5 +16,5 @@ html(lang='en')
       .pull-right
         a.introMeBtn.alert(href="javascript: void(0)") Please let me know what is this?
     .container
-      include ../client/views/mainview/index.jade
+      include ./views/mainview/index.jade
     script(src="code.js")

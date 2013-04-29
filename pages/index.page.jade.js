@@ -1,10 +1,24 @@
-require("./../client/vendor/index.js");
+require("./vendor/index.js");
 
 config = require("config")
 
 runtime = {};
 
-var Router = require("./../client/index.js");
+var Mainview = require("./views/mainview");
+
+var Router = Backbone.Router.extend({
+
+  routes: {
+    "": "landing"
+  },
+
+  landing: function(){
+    var view = new Mainview({
+      el: $(".container")
+    });
+    view.render();
+  }
+});
 
 runtime.router = new Router();
 Backbone.history.start({pushState: false, trigger: true});

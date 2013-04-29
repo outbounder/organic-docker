@@ -5,7 +5,7 @@
     "debug": true,
     "uglify": true,
     "plugins": [{
-      "source": "/client-plugins/ConfigAndTemplates"
+      "source": "/bundlecode-plugins/ConfigAndTemplates"
     }],
     "ignoreMissing": true
   },
@@ -23,6 +23,15 @@
     "source": "node_modules/organic-webcell/plasma/ExpressHttpPages",
     "cwd": {
       "pages": "/pages"
+    },
+    "action": {
+      "extname": ".page.js"
+    },
+    "page": {
+      "extname": ".page.jade"
+    },
+    "pageCode" : {
+      "extname": ".page.jade.js"
     }
   },
   "ExpressHttpActions": {
