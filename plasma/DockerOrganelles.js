@@ -12,7 +12,7 @@ var _ = require("underscore");
 models.Organel = path to model which will be used for parsing comments
 
 
-# The organelle is responsible for 
+The organelle is responsible for 
  
 1. scanning 
 
