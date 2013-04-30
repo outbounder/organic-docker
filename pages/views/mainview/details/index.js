@@ -68,7 +68,7 @@ module.exports = Backbone.View.extend({
         self.trigger("close");
         self.remove();
       }
-    }).center().find("pre").addClass("highlight").syntaxHighlight();
+    }).center();
     return this;
   }
 })

@@ -23,9 +23,6 @@ var Router = Backbone.Router.extend({
 runtime.router = new Router();
 Backbone.history.start({pushState: false, trigger: true});
 
-$("pre").addClass("highlight");
-$.SyntaxHighlighter.init({"lineNumbers": false});
-
 $(function(){
   $("").click(function(){
     

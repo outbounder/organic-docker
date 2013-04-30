@@ -16,10 +16,11 @@ module.exports = function(file, commentBlock){
     var attributeDefinition = $li.find("p:first").text();
     if(!attributeDefinition)
       attributeDefinition = $li.text();
+    var attributeDelimiter = attributeDefinition.indexOf(":") !== -1?":":"-";
     self['dna'].push({
       nestedLevel: 0,
-      keyName: attributeDefinition.split("-").shift(),
-      keyDefaultValue: attributeDefinition.split("-").pop(),
+      keyName: attributeDefinition.split(attributeDelimiter).shift(),
+      keyDefaultValue: attributeDefinition.split(attributeDelimiter).pop(),
       details: $li.html()
     })
   });
