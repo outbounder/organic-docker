@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Docker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./js/jade.js"></script><!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="pull-right"><a href="javascript: void(0)" class="introMeBtn alert">Please let me know what is this?</a></div>
+    </div>
+    <div class="container">
+      <div class="head">
+        <h1>organic-docker</h1>
+      </div>
+      <div data-file="plasma/DockerOrganelles.js" class="row-fluid organelContainer">
+        <div class="span4 incomingList">
+          <div class="chemicalContainer">
+            <div class="chemical">
+              <div class="magnifier"></div><a href="javascript: void(0);" data-details="&lt;p&gt;incoming | DockerOrganelles&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;action&lt;/code&gt; - different values&lt;/p&gt;
+
+&lt;p&gt;required, can have one of the values specified bellow&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;scanForOrganelles&lt;/code&gt; - instructs searching for organelles upon 
+given &lt;code&gt;target&lt;/code&gt; path&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;scan&amp;analyze&lt;/code&gt; - instructs searching and analyzing organelles, 
+returning dna/models/Organel based collection&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;analyzeFile&lt;/code&gt; - instructs reading and analyzing only one file. returns 
+dna/model/Organel instance as data field&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;target&lt;/code&gt; - depends on &lt;code&gt;action&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;&lt;p&gt;when &lt;code&gt;action&lt;/code&gt; equals &quot;scanForOrganelles&quot; = target is the directory to be 
+scanned for Organlles returns Array of Objects {file: &quot;&quot;, source: &quot;&quot;}&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;when &lt;code&gt;action&lt;/code&gt; equals &quot;analyzeFile&quot; = target is the file to be analyzed&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;when &lt;code&gt;action&lt;/code&gt; equals &quot;scan&amp;analyze&quot; = target is the directory to be scanned 
+and then analyzed by returning Array of dna/model/Organel instances&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;" data-name=" DockerOrganelles" data-file="plasma/DockerOrganelles.js" data-commentBlock=" incoming | DockerOrganelles
+  
+* `action` - different values
+
+  required, can have one of the values specified bellow
+
+  * `scanForOrganelles` - instructs searching for organelles upon 
+  given `target` path
+
+  * `scan&amp;analyze` - instructs searching and analyzing organelles, 
+  returning dna/models/Organel based collection
+
+  * `analyzeFile` - instructs reading and analyzing only one file. returns 
+  dna/model/Organel instance as data field
+
+* `target` - depends on `action`
+  
+  * when `action` equals &quot;scanForOrganelles&quot; =&gt; target is the directory to be 
+  scanned for Organlles returns Array of Objects {file: &quot;&quot;, source: &quot;&quot;}
+
+  * when `action` equals &quot;analyzeFile&quot; =&gt; target is the file to be analyzed
+
+  * when `action` equals &quot;scan&amp;analyze&quot; =&gt; target is the directory to be scanned 
+  and then analyzed by returning Array of dna/model/Organel instances
+" class="name"> DockerOrganelles</a>
+              <div class="clear"></div>
+              <div class="structure">{<br><a href="javascript: void(0)" data-details="&lt;p&gt;&lt;code&gt;action&lt;/code&gt; - different values&lt;/p&gt;
+
+&lt;p&gt;required, can have one of the values specified bellow&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;scanForOrganelles&lt;/code&gt; - instructs searching for organelles upon 
+given &lt;code&gt;target&lt;/code&gt; path&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;scan&amp;analyze&lt;/code&gt; - instructs searching and analyzing organelles, 
+returning dna/models/Organel based collection&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;analyzeFile&lt;/code&gt; - instructs reading and analyzing only one file. returns 
+dna/model/Organel instance as data field&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;" data-name="action "><span>action  : </span></a><span class="label"> different values</span><br><a href="javascript: void(0)" data-details="&lt;p&gt;&lt;code&gt;target&lt;/code&gt; - depends on &lt;code&gt;action&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;&lt;p&gt;when &lt;code&gt;action&lt;/code&gt; equals &quot;scanForOrganelles&quot; = target is the directory to be 
+scanned for Organlles returns Array of Objects {file: &quot;&quot;, source: &quot;&quot;}&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;when &lt;code&gt;action&lt;/code&gt; equals &quot;analyzeFile&quot; = target is the file to be analyzed&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;when &lt;code&gt;action&lt;/code&gt; equals &quot;scan&amp;analyze&quot; = target is the directory to be scanned 
+and then analyzed by returning Array of dna/model/Organel instances&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;" data-name="target "><span>target  : </span></a><span class="label"> depends on action</span><br>}
+              </div>
+              <div class="placeholder"></div>
+            </div>
+            <div class="rightarrow"></div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="organel">
+            <div class="parent">plasma</div>
+            <div class="name"><a href="javascript: void(0)" data-details="&lt;p&gt;organel | DockerOrganelles&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;models - Object&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;models.Organel = path to model which will be used for parsing comments&lt;/p&gt;
+
+&lt;p&gt;The organelle is responsible for &lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;scanning &lt;/p&gt;
+
+&lt;p&gt;It is scanning for Organelles (javascript files to contain &lt;code&gt;Organel&lt;/code&gt; charsequence)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;analyzing a directory of javascript files.&lt;/p&gt;
+
+&lt;p&gt;It is analyzing all found entries from scanning and renders a collection of models 
+dna/models/Organel&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;reading and analyzing a single File&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;" data-name="DockerOrganelles" data-file="plasma/DockerOrganelles.js" data-commentBlock=" organel | DockerOrganelles
+
+* models - Object
+
+models.Organel = path to model which will be used for parsing comments
+
+
+The organelle is responsible for 
+ 
+1. scanning 
+
+  It is scanning for Organelles (javascript files to contain `Organel` charsequence)
+
+2. analyzing a directory of javascript files.
+
+  It is analyzing all found entries from scanning and renders a collection of models 
+  dna/models/Organel
+
+3. reading and analyzing a single File
+
+">DockerOrganelles</a></div>
+          </div>
+          <div class="organel-defaults">
+            <div class="structure">{<br><a href="javascript: void(0)" data-details="models - Object" data-name="models "><span>models  : </span></a><span class="label"> Object</span><br>}
+            </div>
+          </div>
+        </div>
+        <div class="span4 outgoingList">
+        </div>
+      </div>
+      <hr>
+    </div>
+    <script src="./code.js"></script>
+  </body>
+</html>
